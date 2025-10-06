@@ -22,4 +22,81 @@
       align-items: center;
       color: #222;
     }
-   
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      width: 90%;
+      max-width: 480px;
+      padding: 35px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease;
+    }
+    .container:hover {
+      transform: scale(1.02);
+    }
+    h2 {
+      text-align: center;
+      font-size: 26px;
+      color: #0078d4;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+    }
+    .input-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 25px;
+      gap: 8px;
+    }
+    input {
+      flex: 1;
+      padding: 8px 10px;
+      border: 2px solid #0078d4;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: 0.2s;
+    }
+    input:focus {
+      box-shadow: 0 0 8px rgba(0,120,212,0.5);
+    }
+    button {
+      padding: 8px 15px;
+      border: none;
+      background: #0078d4;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+    .hasil {
+      margin-top: 20px;
+      border-radius: 10px;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .hasil p {
+      margin: 5px 0;
+      font-size: 15px;
+    }
+    hr {
+      border: none;
+      border-top: 2px solid #dcdcdc;
+      margin: 15px 0;
+    }
+    .emoji-cuaca {
+      font-size: 40px;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+ 

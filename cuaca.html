@@ -153,4 +153,23 @@
           $("#lat").text(res.location.lat ?? "-");
           $("#lon").text(res.location.lon ?? "-");
 
-         
+          // Ganti emoji cuaca
+          const kondisi = res.current.condition.text.toLowerCase();
+          let ikon = "☀️";
+          if (kondisi.includes("rain")) ikon = "🌧️";
+          else if (kondisi.includes("cloud")) ikon = "☁️";
+          else if (kondisi.includes("storm")) ikon = "⛈️";
+          else if (kondisi.includes("snow")) ikon = "❄️";
+          else if (kondisi.includes("fog")) ikon = "🌫️";
+          $("#ikonCuaca").text(ikon);
+        },
+        error: function() {
+          alert("Gagal mengambil data. Coba lokasi lain ya!");
+          $("#hasil").hide();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

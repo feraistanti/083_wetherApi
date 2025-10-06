@@ -99,4 +99,58 @@
 </head>
 <body>
 
- 
+  <div class="container">
+    <h2> INFO CUACA </h2>
+
+    <div class="input-area">
+      <input type="text" id="inputLokasi" placeholder="Masukkan nama kota...">
+      <button id="btnGet">GET</button>
+    </div>
+
+    <div class="hasil" id="hasil" style="display:none;">
+      <div class="emoji-cuaca" id="ikonCuaca">☀️</div>
+      <p><b>Negara:</b> <span id="negara"></span></p>
+      <p><b>Provinsi:</b> <span id="provinsi"></span></p>
+      <p><b>Kecamatan:</b> <span id="kecamatan"></span></p>
+
+      <hr>
+
+      <p><b>Suhu:</b> <span id="suhu"></span> °C</p>
+      <p><b>Kelembaban:</b> <span id="kelembaban"></span>%</p>
+
+      <hr>
+
+      <p><b>Lokasi:</b> <span id="lokasiNama"></span></p>
+      <p><b>Latitude:</b> <span id="lat"></span></p>
+      <p><b>Longitude:</b> <span id="lon"></span></p>
+    </div>
+  </div>
+
+  <script>
+    const apiKey = "d55b7372929f415e87811452250610";
+
+    $("#btnGet").click(function() {
+      let lokasi = $("#inputLokasi").val().trim();
+      if (lokasi === "") {
+        alert("Masukkan nama lokasi terlebih dahulu!");
+        return;
+      }
+
+      const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(lokasi)}&aqi=no`;
+
+      $.ajax({
+        url: url,
+        method: "GET",
+        dataType: "json",
+        success: function(res) {
+          $("#hasil").show();
+          $("#negara").text(res.location.country || "-");
+          $("#provinsi").text(res.location.region || "-");
+          $("#kecamatan").text(res.location.name || "-");
+          $("#suhu").text(res.current.temp_c ?? "-");
+          $("#kelembaban").text(res.current.humidity ?? "-");
+          $("#lokasiNama").text(res.location.tz_id || "-");
+          $("#lat").text(res.location.lat ?? "-");
+          $("#lon").text(res.location.lon ?? "-");
+
+         
